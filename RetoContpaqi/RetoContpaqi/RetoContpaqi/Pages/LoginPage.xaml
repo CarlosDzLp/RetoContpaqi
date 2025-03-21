@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RetoContpaqi.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:RetoContpaqi.Helpers"
+    Title="LoginPage"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout Spacing="20" VerticalOptions="Center">
+            <Label
+                FontFamily="PBold"
+                FontSize="45"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="Login"
+                TextColor="{x:DynamicResource PrimaryColor}" />
+            <Label
+                FontFamily="PMedium"
+                FontSize="35"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="!Bienvenido¡"
+                TextColor="{x:DynamicResource BlackColor}" />
+            <VerticalStackLayout
+                Padding="20,10"
+                Spacing="30"
+                VerticalOptions="Center">
+                <Button
+                    BackgroundColor="{x:DynamicResource PrimaryColor}"
+                    Command="{Binding LoginCommand}"
+                    CornerRadius="8"
+                    FontFamily="PBold"
+                    FontSize="20"
+                    HeightRequest="80"
+                    Text="Login Auth"
+                    TextColor="{x:DynamicResource WhiteColor}" />
+                <Image IsVisible="{Binding IsBiometric}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BiometricCommand}" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="FProSolid"
+                            Glyph="{x:Static font:FontAwesome.Biometric}"
+                            Size="70"
+                            Color="{x:DynamicResource PrimaryColor}" />
+                    </Image.Source>
+                </Image>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
